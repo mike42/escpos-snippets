@@ -5,3 +5,8 @@ This repo is for prototyping improvements for receipt print drivers: [escpos-php
 
 If you aren't developing a driver, imagesetter or CUPS filter, then please check out the linked projects instead.
 
+## Licensing
+The code in this repository is licensed under the MIT Licence, and may be incorportated into LGPL or GPL works. See LICENSE.md for the full text.
+
+The tulip test image is sourced from this set of [Public-Domain Test Images](https://homepages.cae.wisc.edu/~ece533/images/).
+

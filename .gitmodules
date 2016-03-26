@@ -1,0 +1,6 @@
+[submodule "drivers/escpos-php"]
+	path = drivers/escpos-php
+	url = https://github.com/mike42/escpos-php
+[submodule "drivers/python-escpos"]
+	path = drivers/python-escpos
+	url = https://github.com/mike42/python-escpos

@@ -4,7 +4,8 @@ ESC/POS parser
 This is a prototype ESC/POS parser, which can extract the commands contained in
 printable ESC/POS binary data.
 
-`esc2text` will simply extract text and line breaks. Add `-v` to see all the
+### esc2text utility
+`esc2text` will simply extract text and line breaks. Add `-v` as the last argument to see all the
 other commands being skipped over.
 
 ````
@@ -34,5 +35,7 @@ The same binary data can be sent to a printer:
 ````
 $ cat receipt-with-logo.bin > /dev/usb/lp0 
 ````
+
+![receipt-with-logo-small.png](https://raw.githubusercontent.com/mike42/escpos-snippets/master/parser/receipt-with-logo-small.png)
 
 The input file is generated via [escpos-php](https://github.com/mike42/escpos-php).

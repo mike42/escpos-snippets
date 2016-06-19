@@ -69,6 +69,9 @@ $filename = isset($argv[1]) ? $argv[1] : 'tulips.png';
 $im = new Imagick ();
 $im->setResourceLimit ( 6, 1 ); // Prevent libgomp1 segfaults, grumble grumble.
 $im->readimage ( $filename );
+$im-> setImageBackgroundColor('white');
+$im-> setImageAlphaChannel(Imagick::ALPHACHANNEL_REMOVE);
+$im-> mergeImageLayers(Imagick::LAYERMETHOD_FLATTEN);
 
 // Initial rotate. mirror, and extract blobs for each 8 or 24-pixel row
 $im->setformat ( 'pbm' );

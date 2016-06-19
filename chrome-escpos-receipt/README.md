@@ -2,7 +2,11 @@
 
 Proof of concept snippet to print a "Hello world" receipt on a thermal receipt or impact printer, as a Chrome app.
 
-Loaded USB vendor and product ID's for Epson TM-T20, PL2305 Parallel Port, Winbond Virtual Com Port.
+The loaded USB vendor and product ID's are for:
+
+- Epson TM-T20
+- PL2305 Parallel Port
+- Winbond Virtual Com Port.
 
 ## Install
 

@@ -648,4 +648,8 @@ TCVN-3-2:
     - "ÉẸỀỂỄẾỆÌỈ   ĨÍỊÒ"
     - " ỎÕÓỌỒỔỖỐỘỜỞỠỚỢÙ"
     - " ỦŨÚỤỪỬỮỨỰỲỶỸÝỴ "
+
+Unknown:
+  name: Unknown
+  notes: Code page that has not yet been identified.
 ...

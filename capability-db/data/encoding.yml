@@ -9,7 +9,6 @@
 # results.
 
 ---
-# Standard stuff that iconv knows
 CP037:
   iconv: CP037
   python_encode: cp037
@@ -72,9 +71,14 @@ CP500:
   iconv: CP500
   python_encode: cp500
 
+CP720:
+  python_encode: cp720
+
 CP737:
   iconv: CP737
   python_encode: cp737
+
+CP747: []
 
 CP770:
   iconv: CP770
@@ -116,6 +120,8 @@ CP852:
   iconv: CP852
   python_encode: cp852
 
+CP853: []
+
 CP855:
   iconv: CP855
   python_encode: cp855
@@ -127,6 +133,9 @@ CP856:
 CP857:
   iconv: CP857
   python_encode: cp857
+
+CP858:
+  python_encode: cp858
 
 CP860:
   iconv: CP860
@@ -222,6 +231,8 @@ CP921:
 CP922:
   iconv: CP922
 
+CP928: []
+
 CP930:
   iconv: CP930
 
@@ -252,8 +263,14 @@ CP950:
   iconv: CP950
   python_encode: cp950
 
+CP1001:
+  name: Unimplemented Star-specific CP1001
+
 CP1004:
   iconv: CP1004
+
+CP1006:
+  python_encode: cp1006
 
 CP1008:
   iconv: CP1008
@@ -288,6 +305,8 @@ CP1089:
 
 CP1097:
   iconv: CP1097
+
+CP1098: []
 
 CP1112:
   iconv: CP1112
@@ -447,6 +466,69 @@ CP1390:
 CP1399:
   iconv: CP1399
 
+CP2001:
+  name: Unimplemented Star-specific CP2001
+
+CP3001:
+  name: Unimplemented Star-specific CP3001
+
+CP3002:
+  name: Unimplemented Star-specific CP3002
+
+CP3011:
+  name: "CP3011 Latvian"
+  data:
+    - "ÇüéâäàåçêëèïîìÄÅ"
+    - "ÉæÆôöòûùÿÖÜ¢£¥₧ƒ"
+    - "áíóúñÑªº¿⌐¬½¼¡«»"
+    - "░▒▓│┤Ā╢ņ╕╣║╗╝╜╛┐"
+    - "└┴┬├─┼ā╟╚╔╩╦╠═╬╧"
+    - "Š╤čČ╘╒ģĪī┘┌█▄ūŪ▀"
+    - "αßΓπΣσµτΦΘΩδ∞φε∩"
+    - "ĒēĢķĶļĻžŽ∙·√Ņš■ "
+
+CP3012:
+  name: "CP3012 Cyrillic"
+  data:
+    - "АБВГДЕЖЗИЙКЛМНОП"
+    - "РСТУФХЦЧШЩЪЫЬЭЮЯ"
+    - "абвгдежзийклмноп"
+    - "░▒▓│┤Ā╢ņ╕╣║╗╝Ō╛┐"
+    - "└┴┬├─┼ā╟╚╔╩╦╠═╬╧"
+    - "Š╤čČ╘╒ģĪī┘┌█▄ūŪ▀"
+    - "рстуфхцчшщъыьэюя"
+    - "ĒēĢķĶļĻžŽ∙·√Ņš■ "
+
+CP3021:
+  name: Unimplemented Star-specific CP3021
+
+CP3041:
+  name: Unimplemented Star-specific CP3041
+
+CP3840:
+  name: Unimplemented Star-specific CP3840
+
+CP3841:
+  name: Unimplemented Star-specific
+
+CP3843:
+  name: Unimplemented Star-specific
+
+CP3844:
+  name: Unimplemented Star-specific
+
+CP3845:
+  name: Unimplemented Star-specific
+
+CP3847:
+  name: Unimplemented Star-specific
+
+CP3846:
+  name: Unimplemented Star-specific
+
+CP3848:
+  name: Unimplemented Star-specific
+
 CP4517:
   iconv: CP4517
 
@@ -542,77 +624,6 @@ ISO_8859-16:
 
 RK1048:
   iconv: RK1048
-
-# Standard stuff that iconv doesn't know
-CP720:
-  python_encode: cp720
-
-CP853: []
-
-CP858:
-  python_encode: cp858
-
-CP928: []
-
-CP1098: []
-
-CP747: []
-
-CP1006:
-  python_encode: cp1006
-
-# Non-standard stuff that iconv doesn't know
-CP3840: []
-
-CP3841: []
-
-CP3843: []
-
-CP3844: []
-
-CP3845: []
-
-CP3847: []
-
-CP3846: []
-
-CP3848: []
-
-CP1001: []
-
-CP2001: []
-
-CP3001: []
-
-CP3002: []
-
-CP3011:
-  name: "CP3011 Latvian"
-  data:
-    - "ÇüéâäàåçêëèïîìÄÅ"
-    - "ÉæÆôöòûùÿÖÜ¢£¥₧ƒ"
-    - "áíóúñÑªº¿⌐¬½¼¡«»"
-    - "░▒▓│┤Ā╢ņ╕╣║╗╝╜╛┐"
-    - "└┴┬├─┼ā╟╚╔╩╦╠═╬╧"
-    - "Š╤čČ╘╒ģĪī┘┌█▄ūŪ▀"
-    - "αßΓπΣσµτΦΘΩδ∞φε∩"
-    - "ĒēĢķĶļĻžŽ∙·√Ņš■ "
-
-CP3012:
-  name: "CP3012 Cyrillic"
-  data:
-    - "АБВГДЕЖЗИЙКЛМНОП"
-    - "РСТУФХЦЧШЩЪЫЬЭЮЯ"
-    - "абвгдежзийклмноп"
-    - "░▒▓│┤Ā╢ņ╕╣║╗╝Ō╛┐"
-    - "└┴┬├─┼ā╟╚╔╩╦╠═╬╧"
-    - "Š╤čČ╘╒ģĪī┘┌█▄ūŪ▀"
-    - "рстуфхцчшщъыьэюя"
-    - "ĒēĢķĶļĻžŽ∙·√Ņš■ "
-
-CP3021: []
-
-CP3041: []
 
 TCVN-3-1:
   name: "Vietnamese TCVN-3 1"

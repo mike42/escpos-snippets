@@ -1,35 +1,69 @@
 ---
-default:
-  name: Default profile
-  description: Default ESC/POS profile for Epson-branded printers
-  printers:
-  - FooPrint 90000
-  - SuperPrint 80
-  command:
-    LineFeedCmd: false
-    FeedAndCutCmd: true
-    SetAbsolutePrintPosCmd: true
-    GraphicsDataCmd: true
-  media:
-    width:
-      pixels: 768
-      mm: 80
-  font:
-    0:
-      columns: 40
-    1:
-      columns: 50
-  codepage:
-    0: CP437
-    7: TCVN-3-1
-  colors: 2
-  features:
-    starCommands: false
+#
+# Demo with some real data (just not complete yet)
+#
 
-simple:
-  name: Simple profile
-  inherit: default
-  description: Simple profile for printers which do not support more advanced features
-  command:
-    GraphicsDataCmd: false
+printers:
+  default:
+    name: Default
+    vendor: Generic
+    description: >
+        Default ESC/POS profile, suitable for standards-compliant or
+        Epson-branded printers. This profile allows the use of standard
+        ESC/POS features, and can encode a variety of code pages.
+    features:
+      barcodeB: True
+      bitImageRaster: True
+      bitImageColumn: True
+      graphics: True
+      starCommands: False
+      qrCode: True
+      highDensity: True
+    colors:
+      0: black
+    codePageMap:
+      0: CP437
+      1: CP932
+      2: CP850
+
+  simple:
+    inherits: default
+    name: Simple
+    vendor: Generic
+    description: >
+        A profile for use in printers with unknown or poor compatibility. This
+        profile indicates that a small number of features are supported, so that
+        commands are not sent a printer that is unlikely to understand them.
+    features:
+      barcodeB: False
+      bitImageColumn: False
+      graphics: False
+      qrCode: False
+    codePageMap:
+      0: CP437
+
+  TM-U220:
+    inherits: simple
+    name: TM-U220
+    vendor: Epson
+    features:
+      bitImageRaster: False
+      bitImageColumn: True
+      highDensity: False
+    colors:
+      0: black
+      1: red
+    media:
+      width:
+        mm: 80
+        pixels: 350
+
+  TM80P:
+    inherits: default
+    name: TM80P
+    vendor: Epson
+    media:
+      width:
+        mm: 72
+
 ...

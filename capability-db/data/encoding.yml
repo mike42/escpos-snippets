@@ -1,3 +1,13 @@
+# encoding.yml: This file maps known code pages and other character encodings
+#   to a method of encoding.
+#
+# Its purpose is to account for the use of different code page names and
+# implementations, so that drivers have a common data set to use for converting
+# UTF-8 text into something that a printer is likely to understand.
+#
+# Where multiple encoders are listed, any of them can be used to give identical
+# results.
+
 ---
 # Standard stuff that iconv knows
 CP037:

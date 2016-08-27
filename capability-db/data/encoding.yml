@@ -401,12 +401,12 @@ CP1254:
   python_encode: cp1254
 
 CP1255:
-  iconv: CP1254
-  python_encode: cp1254
+  iconv: CP1255
+  python_encode: cp1255
 
 CP1256:
-  iconv: True
-  python_encode: True
+  iconv: CP1256
+  python_encode: cp1256
 
 CP1257:
   iconv: CP1257
@@ -535,13 +535,13 @@ RK1048:
 
 # Standard stuff that iconv doesn't know
 CP720:
-  python_encode: CP720
-  
+  python_encode: cp720
+
 CP853: []
 
 CP858:
-  python_encode: CP858
-  
+  python_encode: cp858
+
 CP928: []
 
 CP1098: []
@@ -549,7 +549,7 @@ CP1098: []
 CP747: []
 
 CP1006:
-  python_encode: CP1006
+  python_encode: cp1006
 
 # Non-standard stuff that iconv doesn't know
 CP3840: []

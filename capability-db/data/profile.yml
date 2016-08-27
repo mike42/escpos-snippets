@@ -1,0 +1,35 @@
+---
+default:
+  name: Default profile
+  description: Default ESC/POS profile for Epson-branded printers
+  printers:
+  - FooPrint 90000
+  - SuperPrint 80
+  command:
+    LineFeedCmd: false
+    FeedAndCutCmd: true
+    SetAbsolutePrintPosCmd: true
+    GraphicsDataCmd: true
+  media:
+    width:
+      pixels: 768
+      mm: 80
+  font:
+    0:
+      columns: 40
+    1:
+      columns: 50
+  codepage:
+    0: CP437
+    7: TCVN-3-1
+  colors: 2
+  features:
+    starCommands: false
+
+simple:
+  name: Simple profile
+  inherit: default
+  description: Simple profile for printers which do not support more advanced features
+  command:
+    GraphicsDataCmd: false
+...

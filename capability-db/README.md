@@ -1,5 +1,2 @@
-# Thermal receipt printer database
-
-This is a public flat-file database of thermal receipt printer capabilities.
-
+Now in its own repository: [mike42/escpos-printer-db](https://github.com/mike42/escpos-printer-db)
 

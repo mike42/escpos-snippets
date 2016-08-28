@@ -11,13 +11,13 @@ printers:
         Epson-branded printers. This profile allows the use of standard
         ESC/POS features, and can encode a variety of code pages.
     features:
-      barcodeB: True
-      bitImageRaster: True
-      bitImageColumn: True
-      graphics: True
-      starCommands: False
-      qrCode: True
-      highDensity: True
+      BarcodeB: True
+      BitImageRaster: True
+      BitImageColumn: True
+      Graphics: True
+      StarCommands: False
+      QrCode: True
+      HighDensity: True
     colors:
       0: black
     fonts:
@@ -119,10 +119,10 @@ printers:
         profile indicates that a small number of features are supported, so that
         commands are not sent a printer that is unlikely to understand them.
     features:
-      barcodeB: False
-      bitImageColumn: False
-      graphics: False
-      qrCode: False
+      BarcodeB: False
+      BitImageColumn: False
+      Graphics: False
+      QrCode: False
     codePages:
       0: CP437
 
@@ -131,16 +131,16 @@ printers:
     name: TM-U220
     vendor: Epson
     features:
-      bitImageRaster: False
-      bitImageColumn: True
-      highDensity: False
+      BitImageRaster: False
+      BitImageColumn: True
+      HighDensity: False
     colors:
       0: black
       1: alternate
     media:
       width:
         mm: 80
-        pixels: 350
+        pixels: unknown
 
   TM-P80:
     inherits: default
@@ -149,6 +149,7 @@ printers:
     media:
       width:
         mm: 72
+        pixels: unknown
 
   P822D:
     inherits: default
@@ -241,4 +242,8 @@ printers:
       87: CP3012
       88: CP3021
       89: CP3041
+    media:
+      width:
+        mm: unknown
+        pixels: unknown
 ...

@@ -101,41 +101,30 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Accept data on port 9100
+ * Accept raw print data via WebSocket on port 9876 (serialised as byte array)
  */
-opt_host = "::1";
 port = 9876;
-readyState = 0
-
-chrome.sockets.tcp.onReceive.addListener(function(receiveInfo) {
-  console.log("Got data", receiveInfo);
-  printDataToDevices(receiveInfo.data, selectedPrinters)
+var server = new http.Server();
+var wsServer = new http.WebSocketServer(server);
+server.listen(port);
+server.addEventListener('request', function(req) {
+  // Serve a deault page of this chrome application.
+  url = '/default.html';
+  req.serveUrl(url);
+  return true;
 });
 
-chrome.sockets.tcp.onReceiveError.addListener(function(receiveInfo) {
-  console.log("Receive error", receiveInfo);
-  chrome.sockets.tcp.close(receiveInfo.socketId)
-});
-
-chrome.sockets.tcpServer.create(function(socketInfo) {
-  chrome.sockets.tcpServer.onAccept.addListener(function(acceptInfo) {
-	  console.log("tcpSocket accepted", acceptInfo);
-	  chrome.sockets.tcp.setPaused(acceptInfo.clientSocketId, false);
+wsServer.addEventListener('request', function(req) {
+  console.log('Client connected');
+  var socket = req.accept();
+  socket.addEventListener('message', function(e) {
+    console.log('Data received', e);
+    var receivedData = JSON.parse(e.data);
+    receivedData = new Uint8Array(receivedData).buffer;
+    printDataToDevices(receivedData, selectedPrinters)
   });
-  chrome.sockets.tcpServer.listen(
-    socketInfo.socketId,
-    opt_host || '0.0.0.0',
-    port,
-    50,
-    function(result) {
-      if (!result) {
-        readyState = 1;
-      }
-      else {
-        console.log(
-          'listen error ' +
-          chrome.runtime.lastError.message +
-            ' (normal if another instance is already serving requests)');
-      }
-    });
+  socket.addEventListener('close', function() {
+    console.log('Client disconnected');
+  });
+  return true;
 });

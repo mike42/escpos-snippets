@@ -47,7 +47,7 @@ function directPrintBytes(socket, bytes) {
   var data = new ArrayBuffer(bytes.length);
   var dataView = new Uint8Array(data, 0, bytes.length);
   dataView.set(bytes, 0);
-  var res = directPrint(socket, dataView);
+  var result = directPrint(socket, dataView);
   if(!result) {
     alert('Faled, check the console for more info.');
   }
@@ -62,7 +62,7 @@ function directPrint(socket, printData) {
     console.log("directPrint(): Argument type must be Uint8Array.")
     return false;
   }
-  if(!printSocket.readyState !== printSocket.OPEN) {
+  if(printSocket.readyState !== printSocket.OPEN) {
     console.log("directPrint(): Socket is not open!");
     return false;
   }

@@ -1,8 +1,13 @@
 var $ = function(id) { return document.getElementById(id); };
+
+/**
+ * Select and print to USB printers
+ */
 selectedPrinters = [];
 
 function selectPrinter() {
   // Dialog and printer selection
+  selectedPrinters = [];
   var onDeviceFound = function(devices) {
     $('printerList').innerHTML = '';
     if(devices.length == 0) {
@@ -41,7 +46,7 @@ function print() {
 function printDataToDevices(data, devices) {
   // For each device, print data to the device
   if(devices.length == 0) {
-    updateStatus("No printers selected.");
+    updateStatus("Cannot print: No printers selected.");
     return;
   }
   devices.forEach(function(device) {
@@ -93,4 +98,44 @@ window.addEventListener('DOMContentLoaded', function() {
   // Hook up buttons
   $('selectPrinter').addEventListener('click', selectPrinter);
   $('print').addEventListener('click', print);
+});
+
+/**
+ * Accept data on port 9100
+ */
+opt_host = "::1";
+port = 9876;
+readyState = 0
+
+chrome.sockets.tcp.onReceive.addListener(function(receiveInfo) {
+  console.log("Got data", receiveInfo);
+  printDataToDevices(receiveInfo.data, selectedPrinters)
+});
+
+chrome.sockets.tcp.onReceiveError.addListener(function(receiveInfo) {
+  console.log("Receive error", receiveInfo);
+  chrome.sockets.tcp.close(receiveInfo.socketId)
+});
+
+chrome.sockets.tcpServer.create(function(socketInfo) {
+  chrome.sockets.tcpServer.onAccept.addListener(function(acceptInfo) {
+	  console.log("tcpSocket accepted", acceptInfo);
+	  chrome.sockets.tcp.setPaused(acceptInfo.clientSocketId, false);
+  });
+  chrome.sockets.tcpServer.listen(
+    socketInfo.socketId,
+    opt_host || '0.0.0.0',
+    port,
+    50,
+    function(result) {
+      if (!result) {
+        readyState = 1;
+      }
+      else {
+        console.log(
+          'listen error ' +
+          chrome.runtime.lastError.message +
+            ' (normal if another instance is already serving requests)');
+      }
+    });
 });

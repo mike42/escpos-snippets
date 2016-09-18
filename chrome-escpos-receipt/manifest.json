@@ -11,6 +11,11 @@
       "scripts": ["main.js"]
     }
   },
+  "sockets": {
+    "tcpServer": {
+        "listen": "*"
+    }
+  },
   "permissions": ["usb"],
   "optional_permissions": [
     {"usbDevices": [
@@ -19,4 +24,3 @@
         {"vendorId": 1208, "productId": 3587}]
     }]
 }
-
